@@ -1,0 +1,17 @@
+{
+  "name": "kanban_app",
+  "version": "1.0.0",
+  "description": "A kanban app",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server"
+  },
+  "author": "Adam Kriger",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-merge": "^0.12.0"
+  }
+}
