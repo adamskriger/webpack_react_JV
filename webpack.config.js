@@ -14,6 +14,12 @@ const common = {
   entry: {
     app: PATHS.app
   },
+  // Add resolve.extensions
+  // '' is needed to allow imports without an extension
+  // note the .'s before the extension as it will fail to load without them
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
   output: {
     path: PATHS.build,
     filename: 'bundle.js'
@@ -26,6 +32,17 @@ const common = {
         loaders: ['style', 'css'],
         //Include accepts either a path or an array of paths
         include: PATHS.app
+      },
+      //set up JSX. This accepts js too thanks to RegExp
+      {
+      test: /\.jsx$/,
+      //enable caching for improved performance during development
+      //It uses default OS directory by default. If you need something more custom,
+      //pass a path to it. ie: babel?cacheDirectory=<path>
+      loaders: 'babel?cacheDirectory',
+      //parse only app files Without this it will go thru the entire project.
+      //beside being slow this will likely result in an error
+      include: PATHS.app
       }
     ]
   }
